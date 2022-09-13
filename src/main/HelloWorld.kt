@@ -1,6 +1,6 @@
 // Will assign kotlin.Unit
 fun main(args: Array<String>) {
-    val temperature = 200
-    val isHot = if (temperature > 150) true else false
-    println(isHot)
+    val temperature = 100
+    val message = "The water temperature is ${ if (temperature > 50) "too warm" else "OK" }."
+    println(message)
 }
