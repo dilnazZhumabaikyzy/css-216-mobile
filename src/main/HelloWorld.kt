@@ -12,4 +12,10 @@ fun main() {
 
     val waterFilter: (Int) -> Int = { dirty -> dirty / 2 }
     println(updateDirty(30, waterFilter))
+
+    //The function you pass doesn't have to be a lambda; it can be a regular named function instead. To specify the argument as a regular function, use the :: operator.
+    // This way Kotlin knows that you are passing the function reference as an argument, not trying to call the function.
+    fun increaseDirty( start: Int ) = start + 1
+
+    println(updateDirty(15, ::increaseDirty))
 }
