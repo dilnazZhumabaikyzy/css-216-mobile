@@ -1,26 +1,10 @@
 fun main() {
-    val decorations = listOf ("rock", "pagoda", "plastic plant", "alligator", "flowerpot")
-
-    val lazyMap = decorations.asSequence().map {
-        println("access: $it")
-        it
-    }
-
-    println("lazy: $lazyMap")
+    val mysports = listOf("basketball", "fishing", "running")
+    val myplayers = listOf("LeBron James", "Ernest Hemingway", "Usain Bolt")
+    val mycities = listOf("Los Angeles", "Chicago", "Jamaica")
+    val mylist = listOf(mysports, myplayers, mycities)     // list of lists
     println("-----")
-    println("first: ${lazyMap.first()}")
-    println("-----")
-    println("all: ${lazyMap.toList()}")
+    println("Flat: ${mylist.flatten()}")
 
-    //⇒ lazy: kotlin.sequences.TransformingSequence@5ba23b66
-    //-----
-    //access: rock
-    //first: rock
-    //-----
-    //access: rock
-    //access: pagoda
-    //access: plastic plant
-    //access: alligator
-    //access: flowerpot
-    //all: [rock, pagoda, plastic plant, alligator, flowerpot]
+
 }
