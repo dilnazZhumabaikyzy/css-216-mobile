@@ -4,6 +4,10 @@ fun main() {
     // lazy
     val filtered = decorations.asSequence().filter { it[0] == 'p' }
     println("filtered: $filtered")
-
-    // output filtered: kotlin.sequences.FilteringSequence@37f8bb67
+    val newList = filtered.toList()
+    println("new list: $newList")
+    // output
+    // ⇒ eager: [pagoda, plastic plant]
+    //filtered: kotlin.sequences.FilteringSequence@386cc1c4
+    //new list: [pagoda, plastic plant]
 }
