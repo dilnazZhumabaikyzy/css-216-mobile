@@ -1,8 +1,10 @@
 package main.myapp
+import java.lang.Math.PI
 //In Kotlin, by default, classes cannot be subclassed.
 //You must mark a class as open to allow it to be subclassed.
 //In those subclasses, you must also mark properties and member variables as open,
 // in order to override them in the subclass.
+import java.lang.Math.PI
 open class Aquarium (open var length: Int = 100, open var width: Int = 20, open var height: Int = 40) {
     open var volume: Int
         get() = width * height * length / 1000
@@ -20,5 +22,15 @@ open class Aquarium (open var length: Int = 100, open var width: Int = 20, open 
         // 1 l = 1000 cm^3
         println("Volume: $volume liters Water: $water liters (${water / volume * 100.0}% full)")
     }
+}
+class TowerTank (override var height: Int, var diameter: Int): Aquarium(height = height, width = diameter, length = diameter) {
+    override var volume: Int
+        // ellipse area = π * r1 * r2
+        get() = (width/2 * length/2 * height / 1000 * PI).toInt()
+        set(value) {
+            height = ((value * 1000 / PI) / (width/2 * length/2)).toInt()
+        }
+    override var water = volume * 0.8
+    override val shape = "cylinder"
 }
 
