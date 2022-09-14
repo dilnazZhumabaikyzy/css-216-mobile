@@ -21,9 +21,11 @@ class Aquarium(var length: Int = 100, var width: Int = 20, var height: Int = 40)
 
     //In the Aquarium class, define an Int property called volume,
     // and define a get() method that calculates the volume in the next line.
-    val volume: Int
-        get() = width * height * length / 1000  // 1000 cm^3 = 1 liter
-
+    var volume: Int
+        get() = width * height * length / 1000
+        set(value) {
+            height = (value * 1000) / (width * length)
+        }
 
     constructor(numberOfFish: Int) : this() {
         // 2,000 cm^3 per fish + extra room so water doesn't spill
