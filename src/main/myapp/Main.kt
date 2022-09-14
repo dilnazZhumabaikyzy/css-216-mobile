@@ -9,5 +9,6 @@ fun makeFish() {
 }
 
 fun main () {
-    makeFish()
+    val equipment = "fish net" to "catching fish"
+    println("${equipment.first} used for ${equipment.second}")
 }
