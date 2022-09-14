@@ -1,36 +1,8 @@
 package main.myapp
 import java.lang.Math.PI
-//In Kotlin, by default, classes cannot be subclassed.
-//You must mark a class as open to allow it to be subclassed.
-//In those subclasses, you must also mark properties and member variables as open,
-// in order to override them in the subclass.
-import java.lang.Math.PI
-open class Aquarium (open var length: Int = 100, open var width: Int = 20, open var height: Int = 40) {
-    open var volume: Int
-        get() = width * height * length / 1000
-        set(value) {
-            height = (value * 1000) / (width * length)
-        }
-    open val shape = "rectangle"
-    open var water: Double = 0.0
-        get() = volume * 0.9
-    fun printSize() {
-        println(shape)
-        println("Width: $width cm " +
-                "Length: $length cm " +
-                "Height: $height cm ")
-        // 1 l = 1000 cm^3
-        println("Volume: $volume liters Water: $water liters (${water / volume * 100.0}% full)")
-    }
-}
-class TowerTank (override var height: Int, var diameter: Int): Aquarium(height = height, width = diameter, length = diameter) {
-    override var volume: Int
-        // ellipse area = π * r1 * r2
-        get() = (width/2 * length/2 * height / 1000 * PI).toInt()
-        set(value) {
-            height = ((value * 1000 / PI) / (width/2 * length/2)).toInt()
-        }
-    override var water = volume * 0.8
-    override val shape = "cylinder"
-}
-
+//Note: Abstract classes are classes that are partially defined.
+//It is the responsibility of the subclasses of the abstract class to define its methods and properties.
+// Abstract classes are always open; you don't need to mark them with open.
+// Properties and methods of an abstract class are non-abstract unless you explicitly mark them with the abstract keyword.
+// If these properties and methods do not have the abstract keyword, then subclasses can use them as given.
+// If properties or methods are abstract, the subclasses must implement them.
