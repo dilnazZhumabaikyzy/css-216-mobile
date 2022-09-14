@@ -1,8 +1,10 @@
 package main.myapp
 class Aquarium(var length: Int = 100, var width: Int = 20, var height: Int = 40) {
-    //The example constructors above just declare properties and assign the value of an expression to them.
-    //If your constructor needs more initialization code, it can be placed in one or more init blocks.
-
+   //secondary constructors
+   //Every secondary constructor must call the primary constructor first,
+   // either directly using this(), or indirectly by calling another secondary constructor.
+   //This means that any init blocks in the primary will be executed for all constructors,
+   //and all the code in the primary constructor will be executed first.
     init {
         println("aquarium initializing")
     }
@@ -15,6 +17,11 @@ class Aquarium(var length: Int = 100, var width: Int = 20, var height: Int = 40)
         println("Width: $width cm " +
                 "Length: $length cm " +
                 "Height: $height cm ")
+    }
+    constructor(numberOfFish: Int) : this() {
+        // 2,000 cm^3 per fish + extra room so water doesn't spill
+        val tank = numberOfFish * 2000 * 1.1
+        height = (tank / (length * width)).toInt()
     }
 
 }
