@@ -19,11 +19,13 @@ class Aquarium(var length: Int = 100, var width: Int = 20, var height: Int = 40)
         println("Volume: $volume liters")
     }
 
-    //In the Aquarium class, define an Int property called volume,
-    // and define a get() method that calculates the volume in the next line.
+  //internal means it will only be visible within that module. A module is a set of Kotlin files compiled together, for example, a library, a client or application, a server application in an IntelliJ project. Note the usage of "module" here is unrelated to Java modules that were introduced in Java 9.
+  //public means visible outside the class. Everything is public by default, including variables and methods of the class.
+    //If you want a property that your code can read or write, but outside code can only read,
+    // you can leave the property and its getter as public and declare the setter private, as shown below.
     var volume: Int
         get() = width * height * length / 1000
-        set(value) {
+        private set(value) {
             height = (value * 1000) / (width * length)
         }
 
